@@ -10,8 +10,27 @@ connection = psycopg2.connect(database = "chinook")
 # build a cursor object of the database. 
 cursor = connection.cursor() # anything query gets stored in cursor variable. Will "read" or iterate over with for loop.
 
-#Query1 - execute query - select all results from Artist table 
-cursor.execute('SELECT * FROM "Artist"') # single quotes to wrap query and double quotes for value querying. 
+# Query1 - execute query - select all results from Artist table 
+# cursor.execute('SELECT * FROM "Artist"')  single quotes to wrap query and double quotes for value querying. 
+
+# Query 2 - select only name from artist
+# cursor.execute('SELECT "Name" FROM "Artist"')
+
+# Query 3 - select only queen from artist. Need to use placeholder for name and put name in string in list. 
+# cursor.execute('SELECT * FROM "Artist" WHERE "Name" = %s', ["Queen"])
+
+# Query 4 - select by ArtistId. 
+# cursor.execute('SELECT * FROM "Artist" WHERE "ArtistId" = %s', [51])
+
+# Query 5 - selects albums by queen in list 
+# cursor.execute('SELECT * FROM "Album" WHERE "ArtistId" = %s', [51])
+
+# Query 6 - select all tracks from track table where the composer is queen
+# cursor.execute('SELECT * FROM "Track" WHERE "Composer" = %s', ["Queen"])
+
+# Query 7 - what happens if not in database? 
+
+cursor.execute('SELECT * FROM "Track" WHERE "Composer" = %s', ["Test"])
 
 # fetch the results (multiple) Looking to fetch multiple records 
 results = cursor.fetchall() # Then store data in results variable. 

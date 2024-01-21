@@ -23,7 +23,7 @@ cursor = connection.cursor() # anything query gets stored in cursor variable. Wi
 # cursor.execute('SELECT * FROM "Artist" WHERE "ArtistId" = %s', [51])
 
 # Query 5 - selects albums by queen in list 
-# cursor.execute('SELECT * FROM "Album" WHERE "ArtistId" = %s', [51])
+# cursor.execute('SELECT * FROM "Album" WHERE "ArtistId" = %s', [51]) d
 
 # Query 6 - select all tracks from track table where the composer is queen
 # cursor.execute('SELECT * FROM "Track" WHERE "Composer" = %s', ["Queen"])

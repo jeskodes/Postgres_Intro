@@ -21,3 +21,11 @@ results = cursor.fetchall() # Then store data in results variable.
 # and keep track of the results. 
 # The results variable is where the actual data fetched from the database is stored
 # after you've used the cursor to retrieve it.
+
+# close connection to database once fetched results so connection isn't persistent. 
+connection.close()
+
+# use for loop to iterate over each individual record retrieved in cursor list and print result variable. 
+
+for result in results: 
+    print(result)

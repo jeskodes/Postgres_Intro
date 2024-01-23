@@ -11,7 +11,7 @@ connection = psycopg2.connect(database = "chinook")
 cursor = connection.cursor() # anything query gets stored in cursor variable. Will "read" or iterate over with for loop.
 
 # Query1 - execute query - select all results from Artist table 
-# cursor.execute('SELECT * FROM "Artist"')  single quotes to wrap query and double quotes for value querying. 
+cursor.execute('SELECT * FROM "Artist"')  # single quotes to wrap query and double quotes for value querying. 
 
 # Query 2 - select only name from artist
 # cursor.execute('SELECT "Name" FROM "Artist"')
@@ -30,7 +30,7 @@ cursor = connection.cursor() # anything query gets stored in cursor variable. Wi
 
 # Query 7 - what happens if not in database? 
 
-cursor.execute('SELECT * FROM "Track" WHERE "Composer" = %s', ["Test"])
+# cursor.execute('SELECT * FROM "Track" WHERE "Composer" = %s', ["Test"])
 
 # fetch the results (multiple) Looking to fetch multiple records 
 results = cursor.fetchall() # Then store data in results variable. 

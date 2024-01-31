@@ -40,7 +40,7 @@ album_table = Table(
     Column("ArtistId", Integer, ForeignKey("artist_table.ArtistId"))
 )
 
-track_table = table(
+track_table = Table(
     "Track", meta, 
     Column("TrackId", Integer, primary_key=True),
     Column("Name", String),

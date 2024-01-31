@@ -20,6 +20,7 @@ meta = MetaData(db) # Use the MetaData class and save to variabe meta. Data abou
 # which I'll assign to the variable of 'artist_table'.
 # Using the Table import, we need to specify the name of our table, and provide the meta schema.
 # Need to provide a breakdown of all the columns in the table. 
+
 # Back within our file, the format when defining columns, is the column name, followed by the
 # type of data presented (integer, string, float), and then any other optional fields after that.
 # In our case, we have a column for "ArtistId", which is an Integer, and for this one, we
@@ -30,7 +31,27 @@ artist_table = Table(
     Column("Name", String)
 )
 
+# create variable for album table
 
+album_table = Table(
+    "Album", meta, 
+    Column("AlbumId", Integer, primary_key=True),
+    Column("Title", String),
+    Column("ArtistId", Integer, ForeignKey("artist_table.ArtistId"))
+)
+
+track_table = table(
+    "Track", meta, 
+    Column("TrackId", Integer, primary_key=True),
+    Column("Name", String),
+    Column("AlbumId", Integer, ForeignKey("album_table.AlbumId")),
+    Column("MediaTypeId", Integer, primary_key=False),
+    Column("GenreId", Integer, primary_key=False),
+    Column("Composer", String),
+    Column("Milliseconds", String),
+    Column("Bytes", Integer),
+    Column("UnitPrice", Float)
+)
 
 # make the connection (almost like functions)
 with db.connect() as connection:  

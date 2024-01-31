@@ -56,7 +56,17 @@ track_table = table(
 # make the connection (almost like functions)
 with db.connect() as connection:  
 
+    
+    # Use select() method and execute() method - these are using the expression language. 
+    # Define all six queries into a variable called select_query - will comment out each time. 
 
+    # Select all records from Artist table - use select() method
+    select_query = artist_table.select()
+
+    # Store the query results into a variable called results
+    results = connection.execute(select_query)
+    for result in results:
+        print(result)
 
 
 # execute using for loop:

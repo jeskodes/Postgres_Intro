@@ -60,8 +60,16 @@ with db.connect() as connection:
     # Use select() method and execute() method - these are using the expression language. 
     # Define all six queries into a variable called select_query - will comment out each time. 
 
-    # Select all records from Artist table - use select() method
-    select_query = artist_table.select()
+    # Query 1 Select all records from Artist table - use select() method
+    # select_query = artist_table.select()
+
+    # Query 2 Select only the "Name" column from the "Artist" table. 
+    # we can use the .with_only_columns() method.
+    # Even if we want to grab results from a single column, we need to wrap the column selection inside of a list.
+    # Also, using dot-nation, we need to use ".c" in our selection, which will identify a specific
+    # column header on the table.
+
+    select_query = artist_table.select().with_only_columns([artist_table.c.Name])
 
     # Store the query results into a variable called results
     results = connection.execute(select_query)

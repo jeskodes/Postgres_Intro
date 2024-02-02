@@ -76,7 +76,16 @@ with db.connect() as connection:
 
     # Use .where() method to look only for Queen. 
 
-    select_query = artist_table.select().where(artist_table.c.Name == "Queen")
+    # select_query = artist_table.select().where(artist_table.c.Name == "Queen")
+
+    # Query 4 - select only by 'ArtistId' #51 from the "Artist" table
+    # select_query = artist_table.select().where(artist_table.c.ArtistId == 51)
+
+    # Query 5 - select only the albums with 'ArtistId' #51 on the "Album" table
+    # select_query = album_table.select().where(album_table.c.ArtistId == 51)
+
+    # Query 6
+    select_query = track_table.select().where(track_table.c.Composer == "Queen")
 
 
     # Store the query results into a variable called results

@@ -15,6 +15,8 @@ base = declarative_base() # variable called base - grabs metadata from database 
 # Add class based models before the session is created 
 # but after the class is declared
 
+# When defining classes in Python use PascalCase
+
 # create a class-based model for the "Artist" table
 class Artist(base):
     __tablename__ = "Artist"
@@ -52,3 +54,13 @@ session = Session()
 
 # creating the database using declarative_base subclass
 base.metadata.create_all(db) # using creeate_all() method. 
+
+# select all records from artist table
+# sql: SELECT * FROM "Artist";
+
+# Query 1 - select all records from the "Artist" table
+artists = session.query(Artist)
+for artist in artists:
+    print(artist.ArtistId, artist.Name, sep=" | ") 
+    # separate each item using the Python separator, and have them split
+    # using the vertical-bar, or pipe, with a space on either side.

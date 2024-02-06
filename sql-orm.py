@@ -16,3 +16,6 @@ base = declarative_base() # variable called base - grabs metadata from database 
 Session = sessionmaker(db)
 # opens an actual session by calling the Session() subclass defined above
 session = Session()
+
+# creating the database using declarative_base subclass
+base.metadata.create_all(db) # using creeate_all() method. 

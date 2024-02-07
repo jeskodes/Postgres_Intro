@@ -36,7 +36,7 @@ cursor.execute('SELECT * FROM "Artist"')  # single quotes to wrap query and doub
 results = cursor.fetchall() # Then store data in results variable. 
 
 # fetch the results (single) Intentionally looking for one record. 
-# results = cursor.fetchone()
+# results = cursor.fetchone().
 
 
 # In simple terms, the cursor is the tool you use to interact with the database, execute queries

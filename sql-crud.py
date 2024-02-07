@@ -31,4 +31,4 @@ Session = sessionmaker(db)
 session = Session()
 
 # creating the database using declarative_base subclass
-base.metadata.create_all(db) # using creeate_all() method. 
+base.metadata.create_all(db) # using creeate_all() method. s

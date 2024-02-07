@@ -83,13 +83,22 @@ tim_berners_lee = Programmer(
     nationality="British",
     famous_for="World Wide Web"
 )
+
+another_record = Programmer(
+    first_name="First Name",
+    last_name="Last Name",
+    gender="-",
+    nationality="-",
+    famous_for="Stuff"
+)
 # Add each programmer to the table
-# session.add(ada_lovelace) Need to comment out session already added or will add again.
+session.add(ada_lovelace) # Need to comment out session already added or will add again.
 # session.add(alan_turing)
-session.add(grace_hopper)
-session.add(margaret_hamilton)
-session.add(bill_gates)
-session.add(tim_berners_lee)
+# session.add(grace_hopper)
+# session.add(margaret_hamilton)
+# session.add(bill_gates)
+# session.add(tim_berners_lee)
+# session.add(another_record)
 
 # Commit to the table
 session.commit()

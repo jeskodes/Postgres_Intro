@@ -43,8 +43,65 @@ ada_lovelace = Programmer (
     famous_for = "First Programmer"
 )
 
+# Record #2 
+alan_turing = Programmer (
+    first_name = "Alan",
+    last_name = "Turing",
+    gender = "Male",
+    nationality = "British",
+    famous_for = "Modern Computing"
+)
+
+grace_hopper = Programmer(
+    first_name="Grace",
+    last_name="Hopper",
+    gender="F",
+    nationality="American",
+    famous_for="COBOL language"
+)
+
+margaret_hamilton = Programmer(
+    first_name="Margaret",
+    last_name="Hamilton",
+    gender="F",
+    nationality="American",
+    famous_for="Apollo 11"
+)
+
+bill_gates = Programmer(
+    first_name="Bill",
+    last_name="Gates",
+    gender="M",
+    nationality="American",
+    famous_for="Microsoft"
+)
+
+tim_berners_lee = Programmer(
+    first_name="Tim",
+    last_name="Berners-Lee",
+    gender="M",
+    nationality="British",
+    famous_for="World Wide Web"
+)
 # Add each programmer to the table
-session.add(ada_lovelace)
+# session.add(ada_lovelace) Need to comment out session already added or will add again.
+# session.add(alan_turing)
+session.add(grace_hopper)
+session.add(margaret_hamilton)
+session.add(bill_gates)
+session.add(tim_berners_lee)
 
 # Commit to the table
 session.commit()
+
+# query the database to find all Programmers
+programmers = session.query(Programmer)
+for programmer in programmers: 
+    print(
+        programmer.id, 
+        programmer.first_name + " " + programmer.last_name, 
+        programmer.gender, 
+        programmer.nationality, 
+        programmer.famous_for, 
+        sep=" | " # separate all these with a pipe
+    )

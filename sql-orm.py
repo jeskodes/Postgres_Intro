@@ -59,8 +59,49 @@ base.metadata.create_all(db) # using creeate_all() method.
 # sql: SELECT * FROM "Artist";
 
 # Query 1 - select all records from the "Artist" table
-artists = session.query(Artist)
-for artist in artists:
-    print(artist.ArtistId, artist.Name, sep=" | ") 
+# artists = session.query(Artist)
+# for artist in artists:
+#     print(artist.ArtistId, artist.Name, sep=" | ") 
     # separate each item using the Python separator, and have them split
     # using the vertical-bar, or pipe, with a space on either side.
+
+
+# Query 2 - select only the "Name" column from the "Artist" table
+# artists = session.query(Artist)
+# for artist in artists: 
+#     print(artist.Name)
+
+# Query 3 - select only Queen from the Artist table 
+# use filter by() method. Use first() method to only get first item from query 
+
+# artist = session.query(Artist).filter_by(Name="Queen").first()
+# print(artist.ArtistId, artist.Name, sep=" | ")
+
+# Query 4 - filter by ArtistId
+
+# artist = session.query(Artist).filter_by(ArtistId = 51).first()
+# print(artist.ArtistId, artist.Name, sep=" | ")
+
+# Query 5 - Select only Albums where "ArtistId" is 51
+
+# albums = session.query(Album).filter_by(ArtistId=51)
+# for album in albums:
+#     print(album.AlbumId, album.Title, album.ArtistId, sep=" | ")
+
+
+# Query 5 - select all tracks where composer is queen 
+
+tracks = session.query(Track).filter_by(Composer="Queen")
+for track in tracks:
+    print(
+        track.TrackId,
+        track.Name,
+        track.AlbumId,
+        track.MediaTypeId,
+        track.GenreId,
+        track.Composer,
+        track.Milliseconds,
+        track.Bytes,
+        track.UnitPrice,
+        sep=" | "
+    )

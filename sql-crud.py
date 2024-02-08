@@ -96,13 +96,24 @@ another_one = Programmer(
 # session.add(margaret_hamilton)
 # session.add(bill_gates)
 # session.add(tim_berners_lee)
-session.add(another_one)
+# session.add(another_one)
+
+
+
+
+# Update a single record - create variable programmer and 
+# set to normal session query on programmer table
+# query the database to find all Programmers
+# use id and primary key of record to update
+# primary key should be 7 but do not yet know how to reset primary keys when delete records
+# use .first() method so don't have to use for loop to iterate over all records first. 
+programmer = session.query(Programmer).filter_by(id=16).first()
+programmer.famous_for = "Other Stuff"
 
 # commit our session to the database
 session.commit()
 
 
-# query the database to find all Programmers
 programmers = session.query(Programmer)
 for programmer in programmers:
     print(

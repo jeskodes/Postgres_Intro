@@ -111,7 +111,20 @@ programmer = session.query(Programmer).filter_by(id=16).first()
 programmer.famous_for = "Other Stuff"
 
 # commit our session to the database
-session.commit()
+# session.commit()
+
+# Update multiple records using for loop and else/if statement
+
+people = session.query(Programmer)
+for person in people:
+    if person.gender == "F":
+        person.gender = "Female"
+    elif person.gender == "M":
+        person.gender = "Male"
+    else:
+        print("Gender not defined")
+    session.commit()
+
 
 
 programmers = session.query(Programmer)

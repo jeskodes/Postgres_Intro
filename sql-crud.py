@@ -115,15 +115,15 @@ programmer.famous_for = "Other Stuff"
 
 # Update multiple records using for loop and else/if statement
 
-people = session.query(Programmer)
-for person in people:
-    if person.gender == "F":
-        person.gender = "Female"
-    elif person.gender == "M":
-        person.gender = "Male"
-    else:
-        print("Gender not defined")
-    session.commit()
+# people = session.query(Programmer)
+# for person in people:
+#     if person.gender == "F":
+#         person.gender = "Female"
+#     elif person.gender == "M":
+#         person.gender = "Male"
+#     else:
+#         print("Gender not defined")
+#     session.commit()
 
 
 

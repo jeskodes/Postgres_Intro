@@ -156,3 +156,11 @@ for programmer in programmers:
         programmer.famous_for,
         sep=" | "
     )
+
+# Delete all records from table
+# Make sure to use defensive programming to confirm deletion first
+
+programmers = session.query(Programmer)
+for programmer in programmers: # find all records in Programmer table 
+    session.delete(programmer) # iterate over each record 
+    session.commit() # commit the record 
